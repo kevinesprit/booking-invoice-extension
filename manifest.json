@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Booking Invoice",
+  "version": "1.0",
+  "description": "Génère une facture à partir d'une réservation Booking.com",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["http://localhost:5042/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Booking Invoice"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.booking.com/*", "*://admin.booking.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "128": "icons/icon128.png"
+  }
+}
